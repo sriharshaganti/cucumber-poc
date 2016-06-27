@@ -13,6 +13,7 @@ public class SampleFeatureSteps {
 	int number1;
 	int number2;
 	int difference;
+	int product;
 	private List<String> businessNameList;
 	
 	@Given("^I have two numbers (\\d+) and (\\d+)$")
@@ -49,9 +50,26 @@ public class SampleFeatureSteps {
 	     businessNameList = stringValues;
 	}
 
-	@Given("^I print them$")
+	@And("^I print them$")
 	public void i_print_them() throws Throwable {
 	    System.out.println(businessNameList);
 	}
+	
+	@Given("^I have (\\d+) and (\\d+)$")
+	public void i_have_and(int arg1, int arg2) throws Throwable {
+	    number1 = arg1;
+	    number2 = arg2;
+	}
+
+	@Then("^I get their (\\d+)$")
+	public void i_get_their(int arg1) throws Throwable {
+	    assertEquals(product,arg1);
+	}
+	@Given("^I multiply them$")
+	public void i_multiply_them() throws Throwable {
+		 product = number1*number2;
+	   	}
+
+	
 
 }
