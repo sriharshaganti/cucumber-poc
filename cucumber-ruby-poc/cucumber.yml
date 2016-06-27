@@ -1,0 +1,4 @@
+---
+default: --profile console --profile html_report --format pretty --tags ~@pending
+html_report: --format html --out target/feature_report.html
+console: --color
